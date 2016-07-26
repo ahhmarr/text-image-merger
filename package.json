@@ -1,13 +1,17 @@
 {
   "name": "text-image-merger",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "merges image pattern with text",
   "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./app/index.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahhmarr/text-image-merger.git"
+  },
+  "keywords": ["image text merge","text pattern merge"],
   "author": "ahmar siddiqui <ahmar.siddiqui@gmail.com>",
   "license": "ISC",
   "dependencies": {

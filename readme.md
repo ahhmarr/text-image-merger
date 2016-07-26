@@ -5,9 +5,10 @@ v 0.0.1
 
 ```var mip=require('text-image-merger');
 mip.generateTextImage(text)
-	.then(function(imageURI)
-	{
-		res.send('<img src="'+imageURI+'" />') ;
-	}).catch(err){
-		throw err;
-	} ```
+.then(function(imageURI)
+{
+	res.send('<img src="'+imageURI+'" />') ;
+}).catch(err){
+	throw err;
+} 
+```
