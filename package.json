@@ -1,0 +1,17 @@
+{
+  "name": "text-image-merger",
+  "version": "0.0.1",
+  "description": "merges image pattern with text",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app/index.js"
+  },
+  "keywords": [],
+  "author": "ahmar siddiqui <ahmar.siddiqui@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^1.4.0",
+    "q": "^1.4.1"
+  }
+}
