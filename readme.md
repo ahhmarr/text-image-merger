@@ -11,4 +11,6 @@ mip.generateTextImage(text)
 	res.send('<img src="'+imageURI+'" />') ;
 }).catch(err){
 	throw err;
-}```
+}
+
+```
