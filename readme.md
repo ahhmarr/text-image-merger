@@ -3,7 +3,8 @@
 Merge Image Pattern with a text sentence
 v 0.0.1
 
-```var mip=require('text-image-merger');
+```
+var mip=require('text-image-merger');
 mip.generateTextImage(text)
 .then(function(imageURI)
 {
