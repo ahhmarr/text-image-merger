@@ -2,6 +2,15 @@ var tim=require('./../lib/tim');
 var http=require('http');
 var disp=require('httpdispatcher');
 var port=3011;
+var Sanitize=require('./../lib/sanitize');
+
+ disp.beforeFilter(/\//, function(req, res, chain) { //any url
+    console.log("Before filter");
+    res.writeHead(200,{
+		'Content-Type' :'text/html'
+	});
+    chain.next(req, res, chain);
+});
 
 var server=http.createServer(function(req,res)
 {
@@ -14,15 +23,27 @@ var server=http.createServer(function(req,res)
 disp.onGet('/',function(req,res)
 {
 	var txt=req.params.text || 'Lorem Ipsum : Lorem ipsum';
-	render(req,res,saveImage.bind(null,req,res,txt));
+	var s=new Sanitize(txt);
+	txt=s.removeWhiteSpace()
+			.removeTags()
+			.removeSpChars(':')
+			.toTitleCase()
+			.getString().replace(/:/,'\n');
+	saveImage(req,res,txt);
 });
-function render(req,res,fn)
+disp.onGet('/text',function(req,res)
 {
-	res.writeHead(200,{
-		'Content-Type' :'text/html'
-	});
-	fn();
-}
+	var txt=req.params.text || 'Lorem Ipsum : Lorem ipsum';
+	var s=new Sanitize(txt);
+	txt=s.removeWhiteSpace()
+			.removeTags()
+			.removeSpChars()
+			.toTitleCase()
+			.getString();
+	res.end(txt);
+});
+
+
 
 function displayImage(req,res,url)
 {
@@ -35,6 +56,7 @@ function displayImage(req,res,url)
 
 function saveImage(req,res,txt)
 {
+	console.log('called');
 	tim.saveToTemp(txt).then(function(resp)
 	{
 		displayImage(req,res,resp.uri);
