@@ -23,12 +23,7 @@ var server=http.createServer(function(req,res)
 disp.onGet('/',function(req,res)
 {
 	var txt=req.params.text || 'Lorem Ipsum : Lorem ipsum';
-	var s=new Sanitize(txt);
-	txt=s.removeWhiteSpace()
-			.removeTags()
-			.removeSpChars(':')
-			.toTitleCase()
-			.getString().replace(/:/,'\n');
+	
 	saveImage(req,res,txt);
 });
 disp.onGet('/text',function(req,res)
