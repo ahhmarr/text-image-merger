@@ -3,6 +3,7 @@ var http=require('http');
 var disp=require('httpdispatcher');
 var port=3011;
 var Sanitize=require('./../lib/sanitize');
+var unirest=require('unirest');
 
  disp.beforeFilter(/\//, function(req, res, chain) { //any url
     console.log("Before filter");
@@ -36,6 +37,20 @@ disp.onGet('/text',function(req,res)
 			.toTitleCase()
 			.getString();
 	res.end(txt);
+});
+disp.onGet('/api-text',function(req,res)
+{
+	var txt=req.params.text || 'Lorem Ipsum : Lorem ipsum';
+	unirest.get('http://localhost:3000/fetch-random-word')
+			.end(function(result)
+			{
+				console.log(result.body);
+				var txt={
+						heading:result.body.word+'..',
+						text:result.body.meaning
+					};
+				saveImage(req,res,txt);
+			})
 });
 
 

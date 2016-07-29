@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "httpdispatcher": "^1.0.0",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "unirest": "^0.5.0"
   }
 }
