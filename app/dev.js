@@ -34,7 +34,7 @@ disp.onGet('/text',function(req,res)
 	txt=s.removeWhiteSpace()
 			.removeTags()
 			.removeSpChars()
-			.toTitleCase()
+			.toSentenceCase()
 			.getString();
 	res.end(txt);
 });

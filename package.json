@@ -21,7 +21,8 @@
   "dependencies": {
     "canvas": "^1.4.0",
     "html-to-text": "^2.1.3",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "sentence-case": "^2.1.0"
   },
   "devDependencies": {
     "httpdispatcher": "^1.0.0",
