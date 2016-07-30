@@ -33,13 +33,7 @@ disp.onGet('/',function(req,res)
 disp.onGet('/text',function(req,res)
 {
 	var txt=req.params.text || 'Lorem Ipsum : Lorem ipsum';
-	/*var s=new Sanitize(txt);
-	txt=s.removeWhiteSpace()
-			.removeTags()
-			.removeSpChars()
-			.toSentenceCase()
-			.getString();*/
-	// res.end(txt);
+	
 	var text ={
 		heading : txt.split(':')[0],
 		text : txt.split(':')[1]
