@@ -23,27 +23,34 @@ var server=http.createServer(function(req,res)
 
 disp.onGet('/',function(req,res)
 {
-	var txt=req.params.text || 'Lorem Ipsum : Lorem ipsum';
-	
-	saveImage(req,res,txt);
+	var t=req.params.text || 'Lorem Ipsum : Lorem ipsum';
+	var text ={
+		heading : t.split(':')[0],
+		text : t.split(':')[1]
+	}
+	saveImage(req,res,text);
 });
 disp.onGet('/text',function(req,res)
 {
 	var txt=req.params.text || 'Lorem Ipsum : Lorem ipsum';
-	var s=new Sanitize(txt);
+	/*var s=new Sanitize(txt);
 	txt=s.removeWhiteSpace()
 			.removeTags()
 			.removeSpChars()
 			.toSentenceCase()
-			.getString();
-	res.end(txt);
+			.getString();*/
+	// res.end(txt);
+	var text ={
+		heading : txt.split(':')[0],
+		text : txt.split(':')[1]
+	}
+	saveImage(req,res,text);
 });
 disp.onGet('/api-text',function(req,res)
 {
 	var txt=req.params.text || 'Lorem Ipsum : Lorem ipsum';
 	unirest.get('http://localhost:3000/fetch-random-word')
-			.end(function(result)
-			{
+			.end(function(result){
 				console.log(result.body);
 				var txt={
 						heading:result.body.word+'..',
