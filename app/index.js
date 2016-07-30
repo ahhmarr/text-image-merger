@@ -9,6 +9,6 @@ module.exports={
 	},
 	sanitize : function(text)
 	{
-		return New Sanitize(text);
+		return new Sanitize(text);
 	}
 }
