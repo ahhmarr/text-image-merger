@@ -1,6 +1,6 @@
 {
   "name": "text-image-merger",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "merges image pattern with text",
   "main": "app/index.js",
   "scripts": {
